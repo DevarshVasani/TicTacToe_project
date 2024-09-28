@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# **Decentralized Cloud Storage System Using Blockchain**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## **Project Overview**
 
-## Available Scripts
+This project aims to build a **Decentralized Cloud Storage System** using blockchain technology. The system enables users to securely store, share, and access files without depending on a central authority. The system ensures **data privacy**, **integrity**, and **availability** by distributing files across multiple nodes using IPFS. Additionally, a **master location** is used to store files, guaranteeing **24/7 availability**, even if the decentralized nodes go offline.
 
-In the project directory, you can run:
+### **Key Features:**
+- **Decentralized File Storage**: Files are fragmented and stored across multiple nodes using IPFS to avoid central control.
+- **Master Location Backup**: Ensures 24/7 availability of files, even if files on IPFS nodes are unavailable.
+- **File Encryption**: Client-side AES-256 encryption ensures that files are securely stored and only accessible by authorized users.
+- **Access Control**: Blockchain-based smart contracts handle file ownership, access rights, and transactions in a transparent, trustless manner.
+- **Incentive Mechanism**: A token-based reward system incentivizes storage providers to maintain data availability.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## **Technology Stack**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### **Blockchain (Ethereum/Polkadot)**  
+- **Smart Contracts (Solidity)**: For managing file ownership, permissions, and transactions, ensuring transparent interactions between users and storage providers.
 
-### `npm test`
+### **IPFS (InterPlanetary File System)**  
+- **Decentralized Storage**: Files are distributed across nodes, leveraging the peer-to-peer nature of IPFS for tamper-proof, decentralized file hosting.
+  
+### **Master Location Storage**  
+- **Availability Guarantee**: Files are stored in a centralized master location to ensure they are always available, even if the decentralized IPFS nodes are temporarily offline.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### **Web3.js**  
+- **Blockchain Interactions**: Web3.js is used to interface between the front-end and the blockchain, allowing users to interact with the system (upload/download files, manage access rights, etc.).
 
-### `npm run build`
+### **React.js**  
+- **Frontend UI**: A user-friendly React interface allows users to upload, view, and manage their files easily. It also integrates with Web3.js for blockchain transactions.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### **AES-256 Encryption**  
+- **Client-Side Encryption**: Files are encrypted on the client side using AES-256 to ensure that only the uploader and authorized users can decrypt the file content.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## **How It Works**
 
-### `npm run eject`
+1. **File Upload**: Users upload files to the system via the React.js front-end. Files are encrypted on the client side using AES-256 encryption for maximum privacy.
+2. **File Storage**: The encrypted file is stored in two places:
+   - **IPFS Nodes**: Decentralized storage for redundancy.
+   - **Master Location**: A backup location to ensure 24/7 availability of files.
+3. **File Access and Sharing**: Users can set access permissions using blockchain smart contracts. Only those with the correct permissions (as stored on the blockchain) can decrypt and download the file.
+4. **Incentives**: Storage providers are incentivized through a token-based system to maintain uptime and host files across the IPFS network.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## **Project Setup**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+To set up the project locally, follow these steps:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. **Clone the Repository:**
+   ```bash
+   git clone [repository link]
+   cd [project directory]
+   npm install
+   npx hardhat compile
+   cd client
+   npm install
+   npm start
