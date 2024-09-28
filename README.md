@@ -1,86 +1,61 @@
-# Decentralized Image Upload and Sharing
+# **Decentralized Cloud Storage System Using Blockchain**
 
-This project facilitates decentralized image upload and sharing on the blockchain using Solidity for the smart contract and React for the front-end interface. It enables users to securely upload images to IPFS (InterPlanetary File System) and share access with specified users through smart contract functionality.
+## **Project Overview**
 
-Here is the video in English - [Decentralize Google Drive](https://youtu.be/M-KRLlHG_zs?si=rD7I-fH-P8kGiwwf)
+This project aims to build a **Decentralized Cloud Storage System** using blockchain technology. The system enables users to securely store, share, and access files without depending on a central authority. The system ensures **data privacy**, **integrity**, and **availability** by distributing files across multiple nodes using IPFS. Additionally, a **master location** is used to store files, guaranteeing **24/7 availability**, even if the decentralized nodes go offline.
 
-Here is the video in Hindi - [Decentralize Google Drive](https://youtu.be/fghqq3-P3x0?si=CVMpHFTW3-fa3R3A)
+### **Key Features:**
+- **Decentralized File Storage**: Files are fragmented and stored across multiple nodes using IPFS to avoid central control.
+- **Master Location Backup**: Ensures 24/7 availability of files, even if files on IPFS nodes are unavailable.
+- **File Encryption**: Client-side AES-256 encryption ensures that files are securely stored and only accessible by authorized users.
+- **Access Control**: Blockchain-based smart contracts handle file ownership, access rights, and transactions in a transparent, trustless manner.
+- **Incentive Mechanism**: A token-based reward system incentivizes storage providers to maintain data availability.
 
-## Features
+---
 
-- **Decentralized Storage:** Images are uploaded to IPFS, ensuring decentralized and immutable storage.
-- **Smart Contract:** Utilizes Solidity smart contracts on the Ethereum blockchain for access control and ownership management.
-- **Access Control:** Users can grant or revoke access to their uploaded images to specific individuals through the smart contract.
+## **Technology Stack**
 
-## Technologies Used
+### **Blockchain (Ethereum/Polkadot)**  
+- **Smart Contracts (Solidity)**: For managing file ownership, permissions, and transactions, ensuring transparent interactions between users and storage providers.
 
-- **Solidity:** Smart contract development for ownership and access control.
-- **React:** Front-end interface for uploading images and managing access.
-- **IPFS:** Decentralized storage protocol for hosting uploaded images.
+### **IPFS (InterPlanetary File System)**  
+- **Decentralized Storage**: Files are distributed across nodes, leveraging the peer-to-peer nature of IPFS for tamper-proof, decentralized file hosting.
+  
+### **Master Location Storage**  
+- **Availability Guarantee**: Files are stored in a centralized master location to ensure they are always available, even if the decentralized IPFS nodes are temporarily offline.
 
-## Usage
+### **Web3.js**  
+- **Blockchain Interactions**: Web3.js is used to interface between the front-end and the blockchain, allowing users to interact with the system (upload/download files, manage access rights, etc.).
 
-### Installation
+### **React.js**  
+- **Frontend UI**: A user-friendly React interface allows users to upload, view, and manage their files easily. It also integrates with Web3.js for blockchain transactions.
 
-1. Clone the repository:
+### **AES-256 Encryption**  
+- **Client-Side Encryption**: Files are encrypted on the client side using AES-256 to ensure that only the uploader and authorized users can decrypt the file content.
 
+---
+
+## **How It Works**
+
+1. **File Upload**: Users upload files to the system via the React.js front-end. Files are encrypted on the client side using AES-256 encryption for maximum privacy.
+2. **File Storage**: The encrypted file is stored in two places:
+   - **IPFS Nodes**: Decentralized storage for redundancy.
+   - **Master Location**: A backup location to ensure 24/7 availability of files.
+3. **File Access and Sharing**: Users can set access permissions using blockchain smart contracts. Only those with the correct permissions (as stored on the blockchain) can decrypt and download the file.
+4. **Incentives**: Storage providers are incentivized through a token-based system to maintain uptime and host files across the IPFS network.
+
+---
+
+## **Project Setup**
+
+To set up the project locally, follow these steps:
+
+1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/your-username/decentralized-image-upload.git
-   ```
-2. Install dependencies for the hardhat:
-
-   ```bash
-   # Navigate to the root directory
-   cd Dgdrive3.0
-   # Install hardhat dependencies
+   git clone [repository link]
+   cd [project directory]
    npm install
-   ```
-3. Compile the smart contract for artifacts:
-
-   ```bash
-   # Compile Smart Contract
    npx hardhat compile
-   ```
-4. Deploy the Solidity smart contract to an Ethereum testnet or local development environment.
-   ```bash
-   # Deploy Smart Contract
-   npx hardhat run scripts/deploy.js --network <network-name>
-   ```
-5. Install dependencies for the React front end:
-   ```bash
-   # Navigate to the React client directory
-   cd client 
-   # Install React dependencies
+   cd client
    npm install
-   ```
-6. Run the react application:
-   ```bash
-   # Start React Application
    npm start
-   ```
-   
-### Configuration
-
-1. Set up environment variables:
-
-   - Obtain API keys for Pinata to interact with IPFS.
-   - Update the React component (FileUpload.js) with your Pinata API keys.
-     
-### Usage
-
-Once the setup and configuration are complete, follow these steps to utilize the decentralized image upload and sharing system:
-
-1. **Install Metamask:**
-   - Ensure Metamask is installed and configured in your browser for Ethereum interactions.
-
-2. **Update Contract Address:**
-   - After smart contract deployment, make sure to update the contract address in `App.js` within the React application.
-
-3. **Upload Image before "Get Data":**
-   - Click "Get Data" only after uploading an image on Pinata. Otherwise, it will throw an error stating "You don't have access".
-
-4. **Accessing Other User Images:**
-   - Use the "Get Data" button to access other users' images. Input the user's address in the designated box, but remember, you can only access their images if they've granted you access through the smart contract. Otherwise, it will throw an error saying "You don't have access".
-
-These steps will ensure smooth navigation and utilization of the system while maintaining access control and avoiding potential errors.
-
