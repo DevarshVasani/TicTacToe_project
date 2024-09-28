@@ -26,16 +26,18 @@ function App() {
         });
         await provider.send("eth_requestAccounts", []);
         const signer = provider.getSigner();
+        console.log(signer);
         const address = await signer.getAddress();
+        console.log(address);
         setAccount(address);
-        let contractAddress = "Your Contract Address Here";
+        let contractAddress = "0x2b5b4203D86bBD82a972c33c711943db91EBEaF8";
 
         const contract = new ethers.Contract(
           contractAddress,
           Upload.abi,
           signer
         );
-        //console.log(contract);
+        console.log(contract);
         setContract(contract);
         setProvider(provider);
       } else {
@@ -56,21 +58,17 @@ function App() {
       )}
 
       <div className="App">
-        <h1 style={{ color: "white" }}>Gdrive 3.0</h1>
-        <div class="bg"></div>
-        <div class="bg bg2"></div>
-        <div class="bg bg3"></div>
-
-        <p style={{ color: "white" }}>
-          Account : {account ? account : "Not connected"}
-        </p>
-        <FileUpload
-          account={account}
-          provider={provider}
-          contract={contract}
-        ></FileUpload>
-        <Display contract={contract} account={account}></Display>
-      </div>
+      <h1 style={{ color: "white" }}>Gdrive 3.0</h1>
+      <p style={{ color: "white" }}>
+        Account : {account ? account : "Not connected"}
+      </p>
+      <FileUpload
+        account={account}
+        provider={provider}
+        contract={contract}
+      />
+      <Display contract={contract} account={account} />
+    </div>
     </>
   );
 }
