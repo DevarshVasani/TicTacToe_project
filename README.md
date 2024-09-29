@@ -3,6 +3,10 @@
 ## **Project Overview**
 
 This project aims to build a **Decentralized Cloud Storage System** using blockchain technology. The system enables users to securely store, share, and access files without depending on a central authority. The system ensures **data privacy**, **integrity**, and **availability** by distributing files across multiple nodes using IPFS. Additionally, a **master location** is used to store files, guaranteeing **24/7 availability**, even if the decentralized nodes go offline.
+---
+
+## To watch the demo video of our project [Click Here](https://youtu.be/mg5qG349BCw)
+---
 
 ### **Key Features:**
 - **Decentralized File Storage**: Files are fragmented and stored across multiple nodes using IPFS to avoid central control.
