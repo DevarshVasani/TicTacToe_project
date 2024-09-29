@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import axios from "axios";
 import "./FileUpload.css";
 const FileUpload = ({ contract, account, provider }) => {
   const [file, setFile] = useState(null);
-  const [fileName, setFileName] = useState("No image selected");
+  const [fileName, setFileName] = useState("");
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (file) {
@@ -16,22 +16,22 @@ const FileUpload = ({ contract, account, provider }) => {
           url: "https://api.pinata.cloud/pinning/pinFileToIPFS",
           data: formData,
           headers: {
-            pinata_api_key: `Enter Your Key`,
-            pinata_secret_api_key: `Enter Your Secret Key`,
+            pinata_api_key: `a5c40d3a4fbae96d7b37`,
+            pinata_secret_api_key: `9b276b130c77a4e14b9b1af760faa4e2cc618122533d39668715322fc57069da`,
             "Content-Type": "multipart/form-data",
           },
         });
         const ImgHash = `https://gateway.pinata.cloud/ipfs/${resFile.data.IpfsHash}`;
         contract.add(account,ImgHash);
         alert("Successfully Image Uploaded");
-        setFileName("No image selected");
+        setFileName("");
         setFile(null);
       } catch (e) {
         alert("Unable to upload image to Pinata");
       }
     }
     alert("Successfully Image Uploaded");
-    setFileName("No image selected");
+    setFileName("");
     setFile(null);
   };
   const retrieveFile = (e) => {
@@ -45,12 +45,37 @@ const FileUpload = ({ contract, account, provider }) => {
     setFileName(e.target.files[0].name);
     e.preventDefault();
   };
+
+  useEffect(() => {
+    const shareButton = document.getElementById('shareButton');
+    const chooseButton = document.querySelector('.chooseposition');
+    if (shareButton && chooseButton) {
+      const shareRect = shareButton.getBoundingClientRect();
+      chooseButton.style.position = 'absolute';
+      chooseButton.style.top = `${shareRect.top - 20}px`;
+      console.log("the top is" + shareRect.top);
+      console.log(shareRect.left);
+      chooseButton.style.left = `${shareRect.left - 200}px`;
+    }
+
+
+
+
+   
+  }, []);
+
+
+  
   return (
     <div className="top">
       <form className="form" onSubmit={handleSubmit}>
-        <label htmlFor="file-upload" className="choose">
-          Choose Image
-        </label>
+        <div className="button-group">
+          {!fileName && (
+            <label htmlFor="file-upload" className="u-border-2 u-border-white u-btn u-btn-round u-button-style u-none u-radius-30 u-text-hover-white u-btn-1 chooseposition ">
+              Choose Image
+            </label>
+          )}
+        </div>
         <input
           disabled={!account}
           type="file"
@@ -58,10 +83,14 @@ const FileUpload = ({ contract, account, provider }) => {
           name="data"
           onChange={retrieveFile}
         />
-        <span className="textArea">Image: {fileName}</span>
-        <button type="submit" className="upload" disabled={!file}>
-          Upload File
-        </button>
+        {fileName && (
+          <>
+            <span className="textArea">selected Image is: {fileName}</span>
+            <button type="submit" className="upload" disabled={!file}>
+              Upload File
+            </button>
+          </>
+        )}
       </form>
     </div>
   );
