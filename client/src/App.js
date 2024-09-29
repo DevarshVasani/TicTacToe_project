@@ -30,17 +30,18 @@ function App() {
         const address = await signer.getAddress();
         console.log(address);
         setAccount(address);
-        let contractAddress = "0x2b5b4203D86bBD82a972c33c711943db91EBEaF8";
-console.log("hello1");
+        let contractAddress = "0x2b5b4203D86bBD82a972c33c711943db91EBEaF8"; //main
+        // let contractAddress = "0x4941cf66b06bbfa647a741eb9b55cc0570dadb5c";    //demo
+// console.log("hello1");
 console.log(Upload);
         const contract = new ethers.Contract(
           contractAddress,
           Upload.output.abi,
           signer
         );
-        console.log("hello22");
+        // console.log("hello22");
         console.log(contract);
-        console.log("hello3");
+        // console.log("hello3");
         setContract(contract);
         setProvider(provider);
       } else {
