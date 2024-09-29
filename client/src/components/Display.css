@@ -15,9 +15,9 @@
   margin: 40px;
 }
 
-.button_position {
+/* .button_position {
   
-}
+} */
 
 
 
@@ -45,7 +45,7 @@
 }
 
 input[type="text"]:focus {
-  background-color: lightblue;
+  background-color: rgb(3, 8, 8);
 }
 
 

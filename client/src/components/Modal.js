@@ -6,6 +6,11 @@ const Modal = ({ setModalOpen, contract }) => {
     await contract.allow(address);
     setModalOpen(false);
   };
+  const nosharing = async () => {
+    const address = document.querySelector(".address").value;
+    await contract.disallow(address);
+    setModalOpen(false);
+  };
   useEffect(() => {
     const accessList = async () => {
       const addressList = await contract.shareAccess();
@@ -61,14 +66,15 @@ const Modal = ({ setModalOpen, contract }) => {
     <input type="text" class="dialogInput" placeholder="Enter Address" />
 
     <select id="selectNumber" class="dialogDropdown">
-      <option className="addre  ">People with my access</option>
+      <option className="address  ">People with my access</option>
       
     </select>
 
 
 
 
-    <button onClick={() => sharing()} class="dialogButton">share</button>
+    <button onClick={() => sharing()} class="dialogButton">share</button><div></div>
+    <button onClick={() => nosharing()} class="dialogButton">Disallow</button>
 
   </div>
 </div>

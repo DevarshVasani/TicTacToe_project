@@ -66,7 +66,7 @@ function App() {
           <div className="u-container-layout u-valign-middle u-container-layout-1">
             <h2 className="u-custom-font u-font-pt-sans u-text u-text-body-alt-color u-text-default u-text-1"><b>Decentralized</b> Cloud <b>System</b>
             </h2>
-            <h5 class="u-text u-text-body-alt-color u-text-2">design studio</h5>
+            {/* <h5 class="u-text u-text-body-alt-color u-text-2">design studio</h5> */}
             
                 <button className="u-border-2 u-border-white u-btn u-btn-round u-button-style u-none u-radius-30 u-text-hover-white u-btn-1" id="shareButton" onClick={() => setModalOpen(true)}>
                   Share
@@ -88,12 +88,13 @@ function App() {
         <p style={{ color: "white" }} className="account_position">
           Account : {account ? account : "Not connected"}
         </p>
+        <Display contract={contract} account={account}></Display>
         <FileUpload
           account={account}
           provider={provider}
           contract={contract}
         ></FileUpload>
-        <Display contract={contract} account={account}></Display>
+        
       </div>
 
 

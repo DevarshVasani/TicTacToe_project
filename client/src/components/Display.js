@@ -65,13 +65,13 @@ const Display = ({ contract, account }) => {
 
 
   return (
-    <>
-      <div className="image-list">{data}</div>
-      <input
+    <><input
         type="text"
         placeholder="Enter Address"
         className="address"
       ></input>
+      <div className="image-list">{data}</div>
+      
       <button className="button_position u-border-2 u-border-white u-btn u-btn-round u-button-style u-none u-radius-30 u-text-hover-white u-btn-1" onClick={getdata}>
         Get Data
       </button>
