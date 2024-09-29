@@ -24,7 +24,7 @@ const Modal = ({ setModalOpen, contract }) => {
   }, [contract]);
   return (
     <>
-      <div className="modalBackground">
+      {/* <div className="modalBackground">
         <div className="modalContainer">
           <div className="title">Share with</div>
           <div className="body">
@@ -51,7 +51,28 @@ const Modal = ({ setModalOpen, contract }) => {
             <button onClick={() => sharing()}>Share</button>
           </div>
         </div>
-      </div>
+      </div> */}
+      <div class="dialogBackground">
+  <div class="dialogContainer">
+    <button class="dialogCloseButton" id="cancelbtn" onClick={() => setModalOpen(false)}>&times;</button>
+
+    <h2 class="dialogHeader">Share With</h2>
+
+    <input type="text" class="dialogInput" placeholder="Enter Address" />
+
+    <select id="selectNumber" class="dialogDropdown">
+      <option className="addre  ">People with my access</option>
+      
+    </select>
+
+
+
+
+    <button onClick={() => sharing()} class="dialogButton">share</button>
+
+  </div>
+</div>
+
     </>
   );
 };
