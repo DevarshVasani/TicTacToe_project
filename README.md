@@ -59,3 +59,22 @@ To set up the project locally, follow these steps:
    cd client
    npm install
    npm start
+
+   ---
+## **Project Images**
+
+1. **home page**:
+<img title="a title" alt="Alt text" src="/WhatsApp Image 2024-09-29 at 15.02.57_8fb78e80.jpg">
+
+2. **upload image**:
+<img title="a title" alt="Alt text" src="/Screenshot 2024-09-29 161928.png">
+<img title="a title" alt="Alt text" src="/Screenshot 2024-09-29 161937.png">
+
+3. **Share the access of your image**:
+<img title="a title" alt="Alt text" src="/Screenshot 2024-09-29 162203.png">
+4. **See your data and others data**:
+<img title="a title" alt="Alt text" src="/WhatsApp Image 2024-09-29 at 15.02.57_8fb78e80.jpg">
+5. **Approval of contracts**:
+<img title="a title" alt="Alt text" src="/WhatsApp Image 2024-09-29 at 15.03.55_2d94a298.jpg">
+<img title="a title" alt="Alt text" src="/WhatsApp Image 2024-09-29 at 15.21.21_fcc8f7c2.jpg">
+<img title="a title" alt="Alt text" src="/WhatsApp Image 2024-09-29 at 15.37.54_43476377.jpg">
